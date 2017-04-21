@@ -1,4 +1,4 @@
-package ManyToMany;
+package ManyToManyWithUniBidirectional;
 
 import java.util.HashSet;
 import java.util.Set;

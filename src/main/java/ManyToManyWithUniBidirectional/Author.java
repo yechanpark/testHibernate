@@ -1,4 +1,4 @@
-package ManyToMany;
+package ManyToManyWithUniBidirectional;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -8,8 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 import lombok.Getter;
@@ -28,8 +26,9 @@ public class Author {
 	private long id;
 
 	private String name;
-
-	/*@ManyToMany(cascade = CascadeType.ALL, mappedBy = "authors")
-	private Set<Book> books = new HashSet<Book>();*/
-
+	
+	/* 있으면 Bidirectional, 없으면 Unidirectional*/
+	/*@ManyToMany(cascade=CascadeType.ALL, mappedBy="authors")
+	private Set<Book> books = new HashSet<Book>();
+	*/
 }

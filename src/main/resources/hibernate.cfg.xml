@@ -23,13 +23,18 @@
 		<!-- update : table없으면 생성 후 반영, table 있으면 변경된 내용 존재 시 update, 주로 운용 시 사용 -->
 		<property name="hibernate.hbm2ddl.auto">create</property>
 
+		<!-- *주의* 테스트 시 해당 클래스외에 다른 클래스들은 주석 처리를 할 것 -->
 		<!-- 객체와 테이블을 매핑시킨다. Copy Qualified Name기능을 사용하여 패키지명까지 기술한다. -->
 		<mapping class="Basics.Product" />
-		<mapping class="OneToMany.Product" />
-		<mapping class="OneToMany.Category" />
-		<mapping class="OneToOne.Person" />
-		<mapping class="OneToOne.License" />
-		<mapping class="ManyToMany.Book" />
-		<mapping class="ManyToMany.Author" />
+		<mapping class="OneToManyWithBidirectional.BiProduct" />
+		<mapping class="OneToManyWithBidirectional.BiCategory" />
+		<mapping class="OneToManyWithUnidirectional.UniProduct" />
+		<mapping class="OneToManyWithUnidirectional.UniCategory" />
+		<mapping class="OneToOneWIthBidirectional.BiPerson" />
+		<mapping class="OneToOneWIthBidirectional.BiLicense" />
+		<mapping class="OneToOneWIthUnidirectional.UniPerson" />
+		<mapping class="OneToOneWIthUnidirectional.UniLicense" />
+		<mapping class="ManyToManyWithUniBidirectional.Book" />
+		<mapping class="ManyToManyWithUniBidirectional.Author" />
 	</session-factory>
 </hibernate-configuration>

@@ -1,4 +1,4 @@
-package OneToMany;
+package OneToManyWithBidirectional;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -18,7 +18,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-public class Category {
+public class BiCategory {
 
 	@Id
 	@GeneratedValue
@@ -27,8 +27,9 @@ public class Category {
 
 	private String name;
 
-	// Category와 Product는 1:N 이므로 OneToMany
-	// Product에서 foreign key역할을 하는 변수의 이름, 이 변수가 지정하는 자식테이블(Product)까지 같이 저장
+	// Category와 Product는 1:N 이므로 현재 클래스 기준으로 OneToMany
+	// Product에서 foreign key역할을 하는 변수의 이름, 자식(Product)까지 같이 저장
+	// mappedBy속성의 값은 상대방 클래스에서 이 클래스를 가리키는 Reference의 변수명과 같다.
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-	private Set<Product> products = new HashSet<Product>();
+	private Set<BiProduct> products = new HashSet<BiProduct>();
 }

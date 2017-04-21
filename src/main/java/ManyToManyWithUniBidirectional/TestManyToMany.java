@@ -1,4 +1,4 @@
-package ManyToMany;
+package ManyToManyWithUniBidirectional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

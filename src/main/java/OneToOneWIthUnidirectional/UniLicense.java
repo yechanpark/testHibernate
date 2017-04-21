@@ -1,4 +1,4 @@
-package OneToOne;
+package OneToOneWIthUnidirectional;
 
 import java.util.Date;
 
@@ -20,17 +20,21 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-public class License {
+public class UniLicense {
 
 	@Id
+	// 자동으로 생성하되 "myGenerator"라는 Generator에서 생성되는 값을 쓴다.
 	@GeneratedValue(generator = "myGenerator")
+	// FK로서 오는 값을 생성하고, 이는 FK값은 인자로 value속성의 값인 "person"을 참조한다.
+	// 여기서 value = "person" 이라는 값은 Person객체의 변수명과 같아야 한다.
 	@GenericGenerator(name = "myGenerator", strategy = "foreign", parameters = @Parameter(value = "person", name = "property"))
 	private long id;
 
 	private String licenseNumber;
 	private Date issue_date;
 
-	@OneToOne // 부모쪽만 저장해도 cascade에 의해 자동적으로 저장되므로 여기서는 cascade 노필요
+	@OneToOne(cascade = CascadeType.ALL)
+	// UniLicense의 외래키는 UniPerson의 person_id라는 컬럼으로 지정
 	@JoinColumn(name = "person_id")
-	private Person person;
+	private UniPerson person;
 }

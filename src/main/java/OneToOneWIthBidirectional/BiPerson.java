@@ -1,4 +1,4 @@
-package OneToOne;
+package OneToOneWIthBidirectional;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,7 +15,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-public class Person {
+public class BiPerson {
 
 	@Id
 	@GeneratedValue
@@ -25,7 +25,8 @@ public class Person {
 	private String firstName;
 	private String lastName;
 
+	// 양방향이므로 BiPerson에서도 매핑정보를 기술한다. 부모쪽에 Cascade를 설정한다.
 	@OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
-	private License license;
+	private BiLicense license;
 
 }
