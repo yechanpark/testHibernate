@@ -3,17 +3,28 @@
 
 <hibernate-configuration>
 	<session-factory>
+		<!-- 사용하는 DB의 종류를 적는다. -->
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- 사용하는 DB의 Driver Class를 적는다 -->
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- DB의 사용자 Id -->
 		<property name="hibernate.connection.username">root</property>
+		<!-- DB의 사용자 PWD -->
 		<property name="hibernate.connection.password">21478965</property>
+		<!-- 사용하는 DB의 URL -->
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/testdb</property>
 
+		<!-- 콘솔에 SQL문을 보여 줄 것인지 설정 -->
 		<property name="show_sql">true</property>
+		<!-- sql을 formatting하여 보여줄 것인지 설정 -->
 		<property name="format_sql">false</property>
 
+		<!-- create : 실행 시 마다 table을 drop 후 create, 주로 개발 시에 사용 -->
+		<!-- update : table없으면 생성 후 반영, table 있으면 변경된 내용 존재 시 update, 주로 운용 시 사용 -->
 		<property name="hibernate.hbm2ddl.auto">create</property>
 
+		<!-- 객체와 테이블을 매핑시킨다. Copy Qualified Name기능을 사용하여 패키지명까지 기술한다. -->
+		<mapping class="Basics.Product" />
 		<mapping class="OneToMany.Product" />
 		<mapping class="OneToMany.Category" />
 		<mapping class="OneToOne.Person" />
